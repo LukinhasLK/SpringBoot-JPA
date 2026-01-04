@@ -24,6 +24,5 @@ public class OrderItemModel implements Serializable {
 
         return getQuantity() * getPrice();
 
-
     }
 }

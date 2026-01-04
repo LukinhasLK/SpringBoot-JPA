@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Tb_User")
+@Table(name = "Tb_user")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -22,8 +22,8 @@ public class UserModel implements Serializable {
     private static final long serialVersionUID = 1L ;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id ;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id ;
 
     private String name ;
     private String email ;

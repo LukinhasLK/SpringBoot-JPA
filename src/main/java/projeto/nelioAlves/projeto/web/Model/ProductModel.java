@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.util.UUID;
 
 @Entity
-@Table(name = "Tb_Product")
+@Table(name = "Tb_product")
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,8 +21,8 @@ public class ProductModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
 
     private String name ;
     private String description;

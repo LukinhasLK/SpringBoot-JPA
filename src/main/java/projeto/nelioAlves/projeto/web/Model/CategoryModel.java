@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.UUID;
+
 
 @Entity
 @Table(name = "Tb_category")
@@ -19,7 +19,7 @@ public class CategoryModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id ;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id ;
     private String name ;
 }
