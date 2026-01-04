@@ -26,7 +26,7 @@ public class testConfig  implements CommandLineRunner {
         User1.setPassword("123456");
 
         UserModel User2 = new UserModel();
-        User2.setName("Pedro Rpdrigues");
+        User2.setName("Pedro Rodrigues");
         User2.setEmail("pedrorodrigues@gmail.com");
         User2.setPhone("1191213313");
         User2.setPassword("123456");
