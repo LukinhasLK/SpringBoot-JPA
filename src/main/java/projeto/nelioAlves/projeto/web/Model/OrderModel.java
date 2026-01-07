@@ -6,6 +6,7 @@ import projeto.nelioAlves.projeto.web.ModelEnum.OrdemStatusModel;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,7 +28,11 @@ public class OrderModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
-    private Date moment;
+    private Instant moment;
     private Set<OrdemStatusModel> OrderStatus = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "client_id")
+    private UserModel client;
 
 }

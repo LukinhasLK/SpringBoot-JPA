@@ -25,6 +25,7 @@ public class UserController {
         List<UserModel>list = services.findall();
         return ResponseEntity.ok().body(list);
     }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<UserModel>findById( @PathVariable long id){
         UserModel user = services.findById(id);
