@@ -6,11 +6,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import projeto.nelioAlves.projeto.web.Model.OrderModel;
 import projeto.nelioAlves.projeto.web.Model.UserModel;
+import projeto.nelioAlves.projeto.web.ModelEnum.OrdemStatusModel;
 import projeto.nelioAlves.projeto.web.Repository.OrderRepository;
 import projeto.nelioAlves.projeto.web.Repository.UserRepository;
 
 import java.time.Instant;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Set;
+
+import static projeto.nelioAlves.projeto.web.ModelEnum.OrdemStatusModel.PAID;
 
 @Configuration
 @Profile("test")
@@ -26,10 +31,10 @@ public class testConfig  implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         UserModel User1 = new UserModel();
-        User1.setName("Lucas Rodrigues");
+        User1.setName("Lucas Rodrigues Alves");
         User1.setEmail("lucasrodrigues@gmail.com");
-        User1.setPhone("11976167310");
-        User1.setPassword("123456");
+        User1.setPhone("99999999");
+        User1.setPassword("1234567");
 
         UserModel User2 = new UserModel();
         User2.setName("Pedro Rodrigues");
@@ -42,10 +47,12 @@ public class testConfig  implements CommandLineRunner {
 
         OrderModel Order1 = new OrderModel();
         Order1.setMoment(Instant.now());
+       Order1.setOrderStatus(2);
         Order1.setClient(User1);
 
         OrderModel Order2 = new OrderModel();
         Order1.setMoment(Instant.now());
+        Order1.setOrderStatus(3);
         Order1.setClient(User2);
 
 

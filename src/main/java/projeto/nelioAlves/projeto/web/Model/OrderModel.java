@@ -1,8 +1,10 @@
 package projeto.nelioAlves.projeto.web.Model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import lombok.*;
 import projeto.nelioAlves.projeto.web.ModelEnum.OrdemStatusModel;
+import tools.jackson.databind.annotation.EnumNaming;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -28,9 +30,12 @@ public class OrderModel implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id ;
-    private Instant moment;
-    private Set<OrdemStatusModel> OrderStatus = new HashSet<>();
 
+
+
+    private Instant moment;
+   
+    private Integer OrderStatus ;
     @ManyToOne
     @JoinColumn(name = "client_id")
     private UserModel client;

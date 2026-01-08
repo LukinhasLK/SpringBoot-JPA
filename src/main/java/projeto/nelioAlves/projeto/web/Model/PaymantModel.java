@@ -10,6 +10,7 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Date;
 import java.util.UUID;
 
@@ -30,5 +31,5 @@ public class PaymantModel implements Serializable {
     private long id;
 
 
-    private Date moment ;
+    private Instant moment ;
 }
