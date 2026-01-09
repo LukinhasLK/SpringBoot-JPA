@@ -1,4 +1,4 @@
 package projeto.nelioAlves.projeto.web.DTO;
 
-public record UserRecord() {
+public record UserResponse() {
 }

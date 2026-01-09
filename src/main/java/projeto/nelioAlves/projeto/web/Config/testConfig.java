@@ -4,28 +4,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
+import projeto.nelioAlves.projeto.web.Model.CategoryModel;
 import projeto.nelioAlves.projeto.web.Model.OrderModel;
 import projeto.nelioAlves.projeto.web.Model.UserModel;
-import projeto.nelioAlves.projeto.web.ModelEnum.OrdemStatusModel;
+import projeto.nelioAlves.projeto.web.Repository.CategoryRepository;
 import projeto.nelioAlves.projeto.web.Repository.OrderRepository;
 import projeto.nelioAlves.projeto.web.Repository.UserRepository;
 
 import java.time.Instant;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.Set;
-
-import static projeto.nelioAlves.projeto.web.ModelEnum.OrdemStatusModel.PAID;
 
 @Configuration
 @Profile("test")
-public class testConfig  implements CommandLineRunner {
+public class testConfig implements CommandLineRunner {
+
 
     @Autowired
     private UserRepository UserRepository;
 
     @Autowired
     private OrderRepository OrderRepository;
+
+    @Autowired
+    private CategoryRepository CategoryRepository;
 
     @Override
     public void run(String... args) throws Exception {
@@ -42,20 +43,30 @@ public class testConfig  implements CommandLineRunner {
         User2.setPhone("1191213313");
         User2.setPassword("123456");
 
-        UserRepository.saveAll(Arrays.asList(User1,User2));
+        UserRepository.saveAll(Arrays.asList(User1, User2));
 
 
         OrderModel Order1 = new OrderModel();
         Order1.setMoment(Instant.now());
-       Order1.setOrderStatus(2);
+        Order1.setOrderStatus(2);
         Order1.setClient(User1);
 
         OrderModel Order2 = new OrderModel();
         Order1.setMoment(Instant.now());
         Order1.setOrderStatus(3);
         Order1.setClient(User2);
+        OrderRepository.saveAll(Arrays.asList(Order1, Order2));
+
+        CategoryModel category1 = new CategoryModel();
+        CategoryModel category2 = new CategoryModel();
+        CategoryModel category3 = new CategoryModel();
+
+        category1.setName("Eletronic");
+        category2.setName("Books");
+        category3.setName("Computers");
 
 
-        OrderRepository.saveAll(Arrays.asList(Order1,Order2));
+        CategoryRepository.saveAll(Arrays.asList(category1,category2,category3));
     }
+
 }
