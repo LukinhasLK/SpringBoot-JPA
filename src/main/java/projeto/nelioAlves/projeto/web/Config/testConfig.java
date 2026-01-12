@@ -6,9 +6,11 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 import projeto.nelioAlves.projeto.web.Model.CategoryModel;
 import projeto.nelioAlves.projeto.web.Model.OrderModel;
+import projeto.nelioAlves.projeto.web.Model.ProductModel;
 import projeto.nelioAlves.projeto.web.Model.UserModel;
 import projeto.nelioAlves.projeto.web.Repository.CategoryRepository;
 import projeto.nelioAlves.projeto.web.Repository.OrderRepository;
+import projeto.nelioAlves.projeto.web.Repository.ProductRepository;
 import projeto.nelioAlves.projeto.web.Repository.UserRepository;
 
 import java.time.Instant;
@@ -18,6 +20,9 @@ import java.util.Arrays;
 @Profile("test")
 public class testConfig implements CommandLineRunner {
 
+
+    @Autowired
+    private ProductRepository ProductRepository;
 
     @Autowired
     private UserRepository UserRepository;
@@ -60,13 +65,58 @@ public class testConfig implements CommandLineRunner {
         CategoryModel category1 = new CategoryModel();
         CategoryModel category2 = new CategoryModel();
         CategoryModel category3 = new CategoryModel();
+        CategoryModel category4 = new CategoryModel();
 
         category1.setName("Eletronic");
         category2.setName("Books");
         category3.setName("Computers");
+        category4.setName("Product clear");
 
 
-        CategoryRepository.saveAll(Arrays.asList(category1,category2,category3));
+
+        CategoryRepository.saveAll(Arrays.asList(category1, category2, category3));
+
+
+        ProductModel product1 = new ProductModel();
+
+        product1.setName("48 leis do poder");
+        product1.setDescription("um livor para voce entender o mundo");
+        product1.setPrice(30.00);
+        product1.getCategory().add(category2);
+
+
+        ProductModel product2= new ProductModel();
+
+        product2.setName("capinha da pitaka");
+        product2.setDescription("capa de alta Resistencia do mercado");
+        product2.setPrice(70.00);
+        product2.getCategory().add(category1);
+
+        ProductModel product3 = new ProductModel();
+
+        product3.setName("Vonix lavarapido");
+        product3.setDescription("Produto de alta eficacia para lavar o seu carro");
+        product3.setPrice(50.00);
+
+        product3.getCategory().add(category4);
+
+
+        ProductModel product4 = new ProductModel();
+
+        product4.setName("Maquina de cabelo");
+        product4.setDescription("uma maquina de alta precisao para corta o seu cabelo");
+        product4.setPrice(100.00);
+        product4.getCategory().add(category1);
+
+
+        ProductModel product5= new ProductModel();
+
+        product5.setName("Macbook");
+        product5.setDescription("Um notebook de alta qualidade ");
+        product5.setPrice(400.00);
+        product5.getCategory().add(category3);
+
+
     }
 
 }

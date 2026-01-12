@@ -1,10 +1,13 @@
 package projeto.nelioAlves.projeto.web.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
 @Entity
@@ -20,9 +23,11 @@ public class CategoryModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id ;
-    private String name ;
+    private long id;
+    private String name;
 
 
-
+    @OneToMany(mappedBy = "category")
+    @JsonIgnore
+    private Set<ProductModel> products = new HashSet<>();
 }
