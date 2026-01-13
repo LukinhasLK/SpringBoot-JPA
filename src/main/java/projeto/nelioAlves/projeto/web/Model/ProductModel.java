@@ -1,14 +1,10 @@
 package projeto.nelioAlves.projeto.web.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "Tb_product")
@@ -34,7 +30,6 @@ public class ProductModel implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "category_id")
-    @JsonIgnore
-    private Set<CategoryModel> category = new HashSet<>();
+    private CategoryModel category;
 
 }

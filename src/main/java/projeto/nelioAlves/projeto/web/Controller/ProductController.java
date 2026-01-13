@@ -2,6 +2,7 @@ package projeto.nelioAlves.projeto.web.Controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,11 +18,13 @@ public class ProductController {
     @Autowired
     private ProductServices services ;
 
+    @GetMapping
     public ResponseEntity<List<ProductModel>> findall(){
         List<ProductModel>product = services.findall();
         return ResponseEntity.ok(product);
     }
 
+    @GetMapping(value = "/{id}")
     public ResponseEntity<ProductModel>findByid( @PathVariable long id){
         ProductModel product = services.findById(id);
 
