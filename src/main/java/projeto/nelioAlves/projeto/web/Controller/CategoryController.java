@@ -12,7 +12,7 @@ import projeto.nelioAlves.projeto.web.Services.CategoryServices;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/category")
+@RequestMapping(value = "/categorys")
 public class CategoryController {
 
     @Autowired

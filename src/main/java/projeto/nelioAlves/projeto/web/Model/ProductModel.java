@@ -5,6 +5,8 @@ import lombok.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "Tb_product")
@@ -23,13 +25,13 @@ public class ProductModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name ;
+    private String name;
     private String description;
-    private Double price ;
-    private String  imgURL;
+    private Double price;
+    private String imgURL;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private CategoryModel category;
+    @ManyToMany
+    @JoinTable(name = "tb_Product_category", joinColumns = @JoinColumn(name = "products_id"), inverseJoinColumns = @JoinColumn(name = "categorys_id"))
+    private Set<CategoryModel> categorys = new HashSet<>();
 
 }

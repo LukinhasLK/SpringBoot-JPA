@@ -74,7 +74,7 @@ public class testConfig implements CommandLineRunner {
 
 
 
-        CategoryRepository.saveAll(Arrays.asList(category1, category2, category3));
+        CategoryRepository.saveAll(Arrays.asList(category1, category2, category3,category4));
 
 
         ProductModel product1 = new ProductModel();
@@ -82,8 +82,8 @@ public class testConfig implements CommandLineRunner {
         product1.setName("48 leis do poder");
         product1.setDescription("um livor para voce entender o mundo");
         product1.setPrice(30.00);
-
         product1.setImgURL("");
+        product1.getCategorys().add(category2);
 
 
         ProductModel product2= new ProductModel();
@@ -92,6 +92,8 @@ public class testConfig implements CommandLineRunner {
         product2.setDescription("capa de alta Resistencia do mercado");
         product2.setPrice(70.00);
         product2.setImgURL("");
+        product2.getCategorys().add(category1);
+
 
         ProductModel product3 = new ProductModel();
 
@@ -99,6 +101,8 @@ public class testConfig implements CommandLineRunner {
         product3.setDescription("Produto de alta eficacia para lavar o seu carro");
         product3.setPrice(50.00);
         product3.setImgURL("");
+        product3.getCategorys().add(category4);
+
 
 
         ProductModel product4 = new ProductModel();
@@ -107,6 +111,7 @@ public class testConfig implements CommandLineRunner {
         product4.setDescription("uma maquina de alta precisao para corta o seu cabelo");
         product4.setPrice(100.00);
         product4.setImgURL("");
+        product4.getCategorys().add(category1);
 
 
         ProductModel product5= new ProductModel();
@@ -115,10 +120,12 @@ public class testConfig implements CommandLineRunner {
         product5.setDescription("Um notebook de alta qualidade ");
         product5.setPrice(400.00);
         product5.setImgURL("");
+        product5.getCategorys().add(category3);
 
 
 
         ProductRepository.saveAll(Arrays.asList(product1,product2,product3,product4,product5));
+
     }
 
 }

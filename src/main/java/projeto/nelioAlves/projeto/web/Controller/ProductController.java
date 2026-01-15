@@ -12,7 +12,7 @@ import projeto.nelioAlves.projeto.web.Services.ProductServices;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/products")
+@RequestMapping(value = "/product")
 public class ProductController {
 
     @Autowired
