@@ -1,28 +1,29 @@
 package projeto.nelioAlves.projeto.web.Model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serial;
 import java.io.Serializable;
 
+@Entity
+@Table(name = "tb_order_item")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 public class OrderItemModel implements Serializable {
+
     @Serial
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID= 1L;
 
-    private Integer Quantity;
-    private Double Price;
+    @EmbeddedId
+    private OrderItemPKModel id ;
 
-
-    public Double subTotal() {
-
-        return getQuantity() * getPrice();
-
-    }
+    private Integer quantity;
+    private Double price ;
 }
